@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>2024 나의 신년계획</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap");
+
+    * {
+      font-family: "Hahmlet" serif;
+    }
+    .bg{
+        background-image: url(https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzExMTZfMjcw%2FMDAxNzAwMTE0ODQ5OTY3.AoC7h3eajaYZQOY4_-8bjWFXfcFXeBoaj28eQsEJJZkg.50buHYQ-4GrCVtPx62WGK2JwDrrgP2_yTTKh4KpVh48g.JPEG.ozzo89%2F1.jpg&type=sc960_832);
+        background-position: center;
+        background-size: cover;
+        margin: auto;
+        width: 360px;
+    }
+    .title {
+      background-color: tomato;
+      border-radius: 10px;
+      color: white;
+      text-align: center;
+      padding: 4px 14px;
+    }
+    .bucket {
+      width: 160px;
+      height: 160px;
+      background-position: center;
+      background-size: cover;
+    }
+    .img1 {
+      background-image: url(https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/bucket-red.png);
+    }
+    .img2 {
+      background-image: url(https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/bucket-lightred.png);
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/sparta-bucketlist.css"/>
+</head>
+
+<body class="bg center">
+    <h1 class="title-3"> 2024년 신년계획 </h1>
+    <p class="msg center"> 올해 안에 3가지를 달성하지 못할 경우,</p>
+    <p class="msg center"> 치킨을 사겠습니다.</p>
+
+    <div class ="flex-row wrap">
+        <div class ='bucket img1-t5 center'> 나만의 웹 페이지 만들기</div>
+        <div class ='bucket img2-t5 center'> ADSP 자격증 따기</div>
+        <div class ='bucket img2-t5 center'> 민경이랑 해외여행가기</div>
+        <div class ='bucket img1-t5 center'> 포트폴리오 만들기</div>
+        <div class ='bucket img1-t5 center'> 하루 1개 개발일기 쓰기</div>
+        <div class ='bucket img2-t5 center'> 프로젝트 3개 해보기</div>
+        </div>
+    </div>
+
+<body>
+  <script>// 페이지 로드 시 이전 상태 복원
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const buckets = document.querySelectorAll(".bucket");
+      buckets.forEach((bucket, index) => {
+        // 로컬 스토리지에서 상태 읽기
+        const isDone = localStorage.getItem("bucket" + index) === "done";
+        if (isDone) {
+          bucket.classList.add("done");
+        }
+      });
+    });
+
+    // 버킷 리스트 클릭 이벤트
+    const buckets = document.querySelectorAll(".bucket");
+    buckets.forEach((bucket, index) => {
+      bucket.addEventListener("click", function () {
+        // 클래스 토글
+        bucket.classList.toggle("done");
+
+        // 로컬 스토리지에 상태 저장
+        if (bucket.classList.contains("done")) {
+          localStorage.setItem("bucket" + index, "done");
+        } else {
+          localStorage.setItem("bucket" + index, "");
+        }
+      });
+    });
+    </script>  
+</body>
+
+</html>
